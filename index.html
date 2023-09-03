@@ -13,39 +13,67 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@1.0.1/dist/conversational-form.min.js" crossorigin></script>
     
-    <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="conversational-form.css"> -->
+    <script src="index.js"></script>
     
 </head>
 <body>
-    <form id="form" cf-form>
-        <fieldset cf-label="opening" name="cfc-opening" cf-input-placeholder="Select a seafood to learn more"
-            cf-questions="Surrounded by the lively Gulf of Maine, Massachusetts produces a myriad of edible species, yet we only eat a small selection of them while importing 75-90% of seafood. Sticking only with our comfort species is going to be hard for the dynamic ocean under the changing climate and the local fishermen.&&Seafood doesn't have to be complex and isn't isolated tastes! If you like cod, the chances are you like Atlantic pollock or halibut.&&Let's start with a seafood that you like."
-            />
-            <input type="radio" name="cfc-opening" id="intro-cod" value="cod">
-            <label for="intro-cod">Atlantic Cod</label>
-        
-            <input type="radio" name="cfc-opening" id="intro-2" value="2">
-            <label for="intro-2">Species 2</label>
-
-            <input type="radio" name="cfc-opening" id="intro-3" value="3">
-            <label for="intro-3">Species 3</label>
-            
-            <input type="radio" name="cfc-opening" id="intro-4" value="4">
-            <label for="intro-4">Species 4</label>
-        </fieldset>
-
-        <input type="text" 
-            cf-questions="If you like Atlantic Cod, you might like...&&<img src='img/pollock.png' width='500' height='600' style='margin: 0px 90px 0px 90px'>&&Atlantic Pollock"
-            cf-conditional-cfc-opening="cod" 
-        />
-    </form>
-
-    <div class="row w-100 h-100 justify-content-center">
-        <div class="col-12 col-md-5">
+    <div class="row w-100 h-100 justify-content-center m-0 p-0">
+        <div class="col-11 col-md-5 h-100 m-0 p-0 align-items-center d-flex">
             <div id="cf-context" class="dark-theme" role="cf-context" cf-context></div>
         </div>
     </div>
 
+    <form id="form" cf-form>
+        <fieldset cf-label="opening" name="cfc-opening" cf-input-placeholder="Select Seafood"
+            cf-questions="Imagine a world<br><br>It'll be a long journey, but the first step isn't hard. It starts with trying an unfamiliar local seafood - perhaps something tastes similar to what you already know and like. Let's start right here!&&Find out more about place-based seafood sustainability information, visit Eating with the Ecosystem."
+            />
+            <input type="radio" name="cfc-opening" id="intro-ahi" value="ahi">
+            <label for="intro-ahi">Ahi Tuna</label>
+        
+            <input type="radio" name="cfc-opening" id="intro-bluefin" value="bluefin">
+            <label for="intro-bluefin">Bluefin Tuna</label>
+
+            <input type="radio" name="cfc-opening" id="intro-cod" value="cod">
+            <label for="intro-cod">Cod</label>
+            
+            <input type="radio" name="cfc-opening" id="intro-clam" value="clam">
+            <label for="intro-clam">Clam</label>
+
+            <input type="radio" name="cfc-opening" id="intro-cuttlefish" value="cuttlefish">
+            <label for="intro-cuttlefish">Cuttlefish</label>
+
+            <input type="radio" name="cfc-opening" id="intro-haddock" value="haddock">
+            <label for="intro-haddock">Haddock</label>
+
+            <input type="radio" name="cfc-opening" id="intro-halibut" value="halibut">
+            <label for="intro-halibut">Halibut</label>
+
+            <input type="radio" name="cfc-opening" id="intro-lobster" value="lobster">
+            <label for="intro-lobster">Lobster</label>
+
+            <input type="radio" name="cfc-opening" id="intro-mahi" value="mahi">
+            <label for="intro-mahi">Mahi-mahi</label>
+
+            <input type="radio" name="cfc-opening" id="intro-octopus" value="octopus">
+            <label for="intro-octopus">Octopus</label>
+
+            <input type="radio" name="cfc-opening" id="intro-scallop" value="scallop">
+            <label for="intro-scallop">Scallop</label>
+
+            <input type="radio" name="cfc-opening" id="intro-striped" value="striped">
+            <label for="intro-striped">Striped Bass</label>
+
+            <input type="radio" name="cfc-opening" id="intro-stone" value="stone">
+            <label for="intro-stone">Stone Crab</label>
+        </fieldset>
+
+        <input type="text" 
+            cf-questions="If you like Ahi Tuna, you most likely like seafood that have the following taste features...&&<img src='img/pollock.png' width='500' height='600' style='margin: 0px 90px 0px 90px'>&&And you might like these species that are landing at Massachusetts&&<img src='img/pollock.png' width='500' height='600' style='margin: 0px 90px 0px 90px'>"
+            cf-conditional-cfc-opening="ahi"
+            cf-input-placeholder="Type anything to select another seafood"
+        />
+    </form>
 </body>
 </html>

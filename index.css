@@ -1,15 +1,84 @@
 body, html {
     height: 100%;
     width: 100%;
-    margin: 0;
-    overflow-x: hidden;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
 #cf-context {
-    height: 100%;
+    height: 90%;
     width: 100%;
 }
 
 #form {
     visibility: hidden;
+}
+
+/* style */
+.conversational-form {
+    background: #B1C8E3 !important;
+    border: 1px solid black !important;
+    border-radius: 15px !important;
+}
+
+.conversational-form:before {
+    background: transparent !important;
+}
+
+cf-chat-response text>p {
+    background: #D1DFEF !important;
+    border-radius: 5px !important;
+    border: 1px solid black !important;
+    color: #000000 !important;
+    font-weight: light !important;
+}
+
+cf-chat-response.user text>p{
+    color: #000000 !important;
+    background: #4192DF !important;
+}
+
+cf-input {
+    background: #B1C8E3 !important;
+}
+
+cf-input-control-elements {
+    background: #B1C8E3 !important;
+}
+
+
+cf-list-button:nth-child(1):before {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #B1C8E3 100%) !important;
+}
+
+cf-list-button:nth-child(2):before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #B1C8E3 100%) !important;
+}
+
+@media (min-width: 1152px) {
+    cf-list-button:hover:nth-child(1) {
+        background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #B1C8E3 75%) !important;
+    }
+
+    cf-list-button:hover:nth-child(2) {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #B1C8E3 75%) !important;
+    }
+}
+
+cf-radio-button.cf-button cf-radio {
+    display: none !important;
+}
+
+cf-input-button.cf-input-button {
+    display: none !important;
+}
+
+.cf-button:hover,
+.cf-button:hover:not([checked="checked"]),
+.cf-button:focus,
+.cf-button:focus:not([checked="checked"]) {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 2px 2px #000000;
 }
