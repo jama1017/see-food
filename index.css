@@ -3,23 +3,19 @@ body, html {
     width: 100%;
     margin: 0px;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #B1C8E3;
 }
 
 #cf-context {
-    height: 90%;
+    height: 100%;
     width: 100%;
-}
-
-#form {
-    visibility: hidden;
 }
 
 /* style */
 .conversational-form {
     background: #B1C8E3 !important;
-    border: 1px solid black !important;
-    border-radius: 15px !important;
+    /* border: 1px solid black !important; */
+    /* border-radius: 15px !important; */
 }
 
 .conversational-form:before {
