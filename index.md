@@ -39,8 +39,8 @@ seafood-options:
         <img class="opening-img" src="assets/img/open_pollock.png" height="80px" >
         <img class="opening-img" src="assets/img/open_scallop.png" height="80px" >
         <img class="opening-img" src="assets/img/open_skate.png" height="80px" >
-        <img class="opening-img" src="assets/img/open_see.png" height="80px" >
         <img class="opening-img" src="assets/img/open_frame.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_see.png" height="80px" >
     </div>
 </div>
 

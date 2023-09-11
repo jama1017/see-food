@@ -8,7 +8,7 @@ window.onload = function () {
 
     const openingImgs = document.getElementsByClassName("opening-img");
     [...openingImgs].forEach((img) => { img.style.display = "none"; });
-    const animationTime = 500;
+    let animationTime = 500;
 
     const openForm = () => {
         console.log("Animation ended");
@@ -26,19 +26,27 @@ window.onload = function () {
     };
 
     let currIndex = 0;
+
     let animateOpening = () => {
         [...openingImgs].forEach((img) => { img.style.display = "none"; });
         openingImgs[currIndex].style.display = "block";
         currIndex++;
 
+        if (currIndex == openingImgs.length - 1) {
+            animationTime = animationTime * 2;
+        }
+
         if (currIndex == openingImgs.length) {
-            clearInterval(animateInterval);
             setTimeout(() => {
                 openingImgs[currIndex - 1].style.display = "none";
                 openForm();
-            }, animationTime * 3);
+            }, animationTime);
+        }
+        else {
+            setTimeout(animateOpening, animationTime);
         }
     }
 
-    const animateInterval = setInterval(animateOpening, animationTime);
+    animateOpening();
+
 }
