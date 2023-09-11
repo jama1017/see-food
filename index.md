@@ -33,8 +33,14 @@ seafood-options:
 ---
 
 <div class="row w-100 h-100 justify-content-center m-0 p-0">
-    <div class="col-11 col-md-5 h-100 m-0 p-0 align-items-center d-flex">
+    <div class="col-11 col-md-5 h-100 m-0 p-0 align-items-center d-flex justify-content-center">
         <div id="cf-context" class="dark-theme" role="cf-context" cf-context></div>
+        <img class="opening-img show" src="assets/img/open_cod.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_pollock.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_scallop.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_skate.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_see.png" height="80px" >
+        <img class="opening-img" src="assets/img/open_frame.png" height="80px" >
     </div>
 </div>
 
