@@ -75,7 +75,17 @@ cf-input-button.cf-input-button {
 .cf-button:hover:not([checked="checked"]),
 .cf-button:focus,
 .cf-button:focus:not([checked="checked"]) {
-    background: #ffffff !important;
+    background: #0183FF !important;
     color: #000000 !important;
     box-shadow: 2px 2px #000000;
+}
+
+.cf-button[selected="selected"]:not(:focus):not(:hover):not(.highlight),
+.cf-button[checked="checked"]:not(:focus):not(:hover):not(.highlight) {
+    color: #000000 !important;
+    background: #0183FF !important;
+}
+
+.cf-button:active>div {
+    opacity: 1 !important;
 }
