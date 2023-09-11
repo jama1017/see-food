@@ -1,91 +1,153 @@
 body,
 html {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    overflow: hidden;
-    background-color: #B1C8E3;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  overflow: hidden;
+  background-color: #b1c8e3;
 }
 
 #cf-context {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 /* style */
 .conversational-form {
-    background: #B1C8E3 !important;
-    /* border: 1px solid black !important; */
-    /* border-radius: 15px !important; */
+  background: #b1c8e3 !important;
+  /* border: 1px solid black !important; */
+  /* border-radius: 15px !important; */
 }
 
 .conversational-form:before {
-    background: transparent !important;
+  background: transparent !important;
 }
 
-cf-chat-response text>p {
-    background: #D1DFEF !important;
-    border-radius: 5px !important;
-    border: 1px solid black !important;
-    color: #000000 !important;
-    font-weight: light !important;
+cf-chat-response text > p {
+  background: #d1dfef !important;
+  border-radius: 5px !important;
+  border: 1px solid black !important;
+  color: #000000 !important;
+  font-weight: light !important;
 }
 
-cf-chat-response.user text>p {
-    color: #000000 !important;
-    background: #4192DF !important;
+cf-chat-response.user text > p {
+  color: #000000 !important;
+  background: #4192df !important;
 }
 
 cf-input {
-    background: #B1C8E3 !important;
+  background: #b1c8e3 !important;
 }
 
 cf-input-control-elements {
-    background: #B1C8E3 !important;
+  background: #b1c8e3 !important;
 }
 
-
 cf-list-button:nth-child(1):before {
-    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #B1C8E3 100%) !important;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0) 0%,
+    #b1c8e3 100%
+  ) !important;
 }
 
 cf-list-button:nth-child(2):before {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #B1C8E3 100%) !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    #b1c8e3 100%
+  ) !important;
 }
 
 @media (min-width: 1152px) {
-    cf-list-button:hover:nth-child(1) {
-        background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #B1C8E3 75%) !important;
-    }
+  cf-list-button:hover:nth-child(1) {
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      #b1c8e3 75%
+    ) !important;
+  }
 
-    cf-list-button:hover:nth-child(2) {
-        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #B1C8E3 75%) !important;
-    }
+  cf-list-button:hover:nth-child(2) {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      #b1c8e3 75%
+    ) !important;
+  }
 }
 
 cf-radio-button.cf-button cf-radio {
-    display: none !important;
+  display: none !important;
 }
 
 cf-input-button.cf-input-button {
-    display: none !important;
+  display: none !important;
 }
 
 .cf-button:hover,
 .cf-button:hover:not([checked="checked"]),
 .cf-button:focus,
 .cf-button:focus:not([checked="checked"]) {
-    background: #0183FF !important;
-    color: #000000 !important;
-    box-shadow: 2px 2px #000000;
+  background: #0183ff !important;
+  color: #000000 !important;
+  box-shadow: 2px 2px #000000;
 }
 
 .cf-button[selected="selected"]:not(:focus):not(:hover):not(.highlight),
 .cf-button[checked="checked"]:not(:focus):not(:hover):not(.highlight) {
-    color: #000000 !important;
-    background: #0183FF !important;
+  color: #000000 !important;
+  background: #0183ff !important;
 }
 
-.cf-button:active>div {
-    opacity: 1 !important;
+.cf-button:active > div {
+  opacity: 1 !important;
+}
+
+cf-chat-response text > p > img {
+  max-width: 1000px !important;
+}
+
+cf-chat-response text {
+  max-width: 100% !important;
+}
+
+.horizontal-scroll {
+  position: relative !important;
+  max-width: 100% !important;
+  overflow: auto !important;
+  white-space: nowrap !important;
+  display: block;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+cf-chat-response text > p {
+  max-width: 100% !important;
+}
+
+.left-button {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  display: block;
+  width: 6px;
+  height: 10px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='UTF-8' standalone='no'?%3e%3csvg viewBox='0 0 6 10' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg stroke='none' stroke-width='1' fill='%23000000' fill-rule='evenodd'%3e%3cg transform='translate%28-1230.000000, -567.000000%29' %3e%3cg transform='translate%28738.000000, 178.000000%29'%3e%3cg transform='translate%280.000000, 340.000000%29'%3e%3cg transform='translate%28466.000000, 0.000000%29'%3e%3cpolygon transform='translate%2829.000000, 54.000000%29 rotate%28-180.000000%29 translate%28-29.000000, -54.000000%29 ' points='26 50.1538462 27.125 49 32 54 27.125 59 26 57.8461538 29.75 54'%3e%3c/polygon%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+}
+
+.right-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  display: block;
+  width: 6px;
+  height: 10px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='UTF-8' standalone='no'?%3e%3csvg viewBox='0 0 6 10' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg stroke='none' stroke-width='1' fill='%23000000' fill-rule='evenodd'%3e%3cg transform='translate%28-1230.000000, -567.000000%29'%3e%3cg transform='translate%28738.000000, 178.000000%29'%3e%3cg transform='translate%280.000000, 340.000000%29'%3e%3cg transform='translate%28466.000000, 0.000000%29'%3e%3cpolygon points='26 50.1538462 27.125 49 32 54 27.125 59 26 57.8461538 29.75 54'%3e%3c/polygon%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
 }

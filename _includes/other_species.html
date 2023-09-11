@@ -1,0 +1,10 @@
+<span onclick='handleScrollButtonClickLeft()' class='left-button'> </span>
+<span class='horizontal-scroll'>
+  {% for species in include.species-list%}
+  <span class='d-inline-block text-center' style='margin-right: 20px'>
+    <img src={{ 'assets/img/' | append: species | append: '.png' }} width='200px' /><br /><br />
+    <span style='text-transform:capitalize'>{{ species | split: '_' | join: ' '}}</span>
+  </span>
+  {% endfor %}
+</span>
+<span onclick='handleScrollButtonClickRight()' class='right-button'> </span>

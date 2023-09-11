@@ -8,7 +8,7 @@ window.onload = function () {
 
     const openingImgs = document.getElementsByClassName("opening-img");
     [...openingImgs].forEach((img) => { img.style.display = "none"; });
-    let animationTime = 500;
+    let animationTime = 0;
 
     const openForm = () => {
         console.log("Animation ended");
@@ -50,3 +50,13 @@ window.onload = function () {
     animateOpening();
 
 }
+
+const handleScrollButtonClickLeft = () => {
+    // document.getElementsByClassName("horizontal-scroll")[0].scrollLeft -= 150;
+    $(".horizontal-scroll").animate({ scrollLeft: '-=150' }, 300);
+};
+
+const handleScrollButtonClickRight = (dir) => {
+    // document.getElementsByClassName("horizontal-scroll")[0].scrollLeft += 150;
+    $(".horizontal-scroll").animate({ scrollLeft: '+=150' }, 300);
+};
