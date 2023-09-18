@@ -177,3 +177,7 @@ cf-radio-button > div:first-of-type {
   height: 30px !important;
   margin-right: 10px !important;
 }
+
+.inputWrapper {
+  display: none !important;
+}

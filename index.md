@@ -54,6 +54,21 @@ other-species-cod-haddock-halibut:
     whiting,
     arcadian_redfish,
   ]
+
+recipe-cod-haddock-halibut:
+  time: 20
+  ingredients: ["Any mild, flakey fish fillet", Butter, Lemon, Garlic, "Salt & Pepper"]
+  steps:
+    - title: Pat Dry
+      description: Pat dry the fillets with paper towel.
+    - title: Make Lemon Butter
+      description: Melt butter in microwave (or sauce pan over stove), stir in fresh lemon juice.
+    - title: Season
+      description: Arrange fillets in a baking dish, pour butter mixture evenly over. Season with garlic cloves, salt and pepper.
+    - title: Bake
+      description: Bake for 10-15 minutes in a 400 °F oven
+    - title: Serve
+      description: Drizzle the fish with the lemon butter sauce from the pan, ready to go!
 ---
 
 <div class="row w-100 h-100 justify-content-center m-0 p-0">
@@ -79,34 +94,41 @@ other-species-cod-haddock-halibut:
     </fieldset>
 
     {% for option in page.seafood-options %}
-    <fieldset type="text" name="cfc-species"
+    <fieldset type="text" name="cfc-species-{{ option.value }}"
         cf-questions="If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% endcase %}"
         cf-input-placeholder="Type anything to select another seafood"
         >
-            <input type="radio" 
-                   cf-conditional-cfc-opening="{{ option.value }}" 
-                   name="cfc-species-{{ option.value }}" 
-                   id="species-{{ option.value }}-recipe" 
-                   value="{{ option.value }}-recipe" 
+            <input type="radio"
+                   cf-conditional-cfc-opening="{{ option.value }}"
+                   name="cfc-species-{{ option.value }}"
+                   id="species-{{ option.value }}-recipe"
+                   value="{{ option.value }}-recipe"
                    cf-label="<img src='assets/img/action_spoon.png' class='action-icon'/>A ridiculously easy & tasty recipe for this list"
                    >
 
-            <input type="radio" 
-                   cf-conditional-cfc-opening="{{ option.value }}" 
-                   name="cfc-species-{{ option.value }}" 
-                   id="species-{{ option.value }}-eco" 
-                   value="{{ option.value }}-eco" 
+            <input type="radio"
+                   cf-conditional-cfc-opening="{{ option.value }}"
+                   name="cfc-species-{{ option.value }}"
+                   id="species-{{ option.value }}-eco"
+                   value="{{ option.value }}-eco"
                    cf-label="<img src='assets/img/action_fish.png' class='action-icon'/>Dive deeper into <a href='https://www.eatingwiththeecosystem.org/' target='_blank'>Eating with the Ecosystem</a>"
                    >
 
-            <input type="radio" 
-                   cf-conditional-cfc-opening="{{ option.value }}" 
-                   name="cfc-species-{{ option.value }}" 
-                   id="species-{{ option.value }}-local" 
-                   value="{{ option.value }}-local" 
+            <input type="radio"
+                   cf-conditional-cfc-opening="{{ option.value }}"
+                   name="cfc-species-{{ option.value }}"
+                   id="species-{{ option.value }}-local"
+                   value="{{ option.value }}-local"
                    cf-label="<img src='assets/img/action_bag.png' class='action-icon'/>Check <a href='https://www.thelocalcatch.com/' target='_blank'>the Local Catch Network</a> to locate your desired catch"
                    >
     </fieldset>
+    {% endfor %}
+
+    {% for option in page.seafood-options %}
+    <input
+      type="text"
+      cf-questions="{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include recipe.html recipe=page.recipe-cod-haddock-halibut%}{% endcase %}"
+      cf-conditional-cfc-species-{{ option.value }}="{{ option.value }}-recipe" />
     {% endfor %}
 
 </form>
