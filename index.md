@@ -5,19 +5,19 @@ layout: page
 seafood-options:
   - value: ahi
     label: Ahi Tuna
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_ahi_bluefin.png
   - value: bluefin
     label: Bluefin Tuna
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_ahi_bluefin.png
   - value: cod
     label: Cod
     taste-img: assets/img/flavor_cod_haddock_halibut.png
   - value: clam
     label: Clam
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_clam.png
   - value: cuttlefish
     label: Cuttlefish
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_cuttlefish_octopus.png
   - value: haddock
     label: Haddock
     taste-img: assets/img/flavor_cod_haddock_halibut.png
@@ -26,34 +26,90 @@ seafood-options:
     taste-img: assets/img/flavor_cod_haddock_halibut.png
   - value: lobster
     label: Lobster
-    taste-img: assets/img/atlantic_pollock.png
-  - value: mahi
+    taste-img: assets/img/flavor_lobster.png
+  - value: iham
     label: Mahi-mahi
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_mahi_striped.png
   - value: octopus
     label: Octopus
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_cuttlefish_octopus.png
   - value: scallop
     label: Scallop
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_scallop.png
   - value: striped
     label: Striped Bass
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_mahi_striped.png
   - value: stone
     label: Stone Crab
-    taste-img: assets/img/atlantic_pollock.png
+    taste-img: assets/img/flavor_stone.png
 
 other-species-cod-haddock-halibut:
-  [
-    atlantic_pollock,
-    fluke,
-    grey_sole,
-    red_hake,
-    spiny_dogfish,
-    white_hake,
-    whiting,
-    arcadian_redfish,
-  ]
+  - species: atlantic_pollock
+    period: Year-round
+  - species: fluke
+    period: June - August
+  - species: grey_sole
+    period: Year-round
+  - species: red_hake
+    period: Year-round
+  - species: spiny_dogfish
+    period: Year-round
+  - species: white_hake
+    period: Year-round
+  - species: whiting
+    period: July - October
+  - species: arcadian_redfish
+    period: Year-round
+
+other-species-ahi-bluefin:
+  - species: atlantic_mackerel
+    period: Year-round
+  - species: ocean_bonito
+    period: April - June
+  - species: bluefish
+    period: June - September
+  - species: bigeye_tuna
+    period: Year-round
+
+other-species-cuttlefish-octopus:
+  - species: longfin_inshore_squid
+    period: Year-round
+  - species: shortfin_inshore_squid
+    period: Year-round
+
+other-species-lobster:
+  - species: monkfish
+    period: Year-round
+  - species: jonah_crab
+    period: January - March
+
+other-species-mahi-striped:
+  - species: black_sea_bass
+    period: May - August
+  - species: scup
+    period: May - September
+  - species: cunner
+    period: Year-round
+
+other-species-clam:
+  - species: atlantic_surf_clam
+    period: Year-round
+  - species: ocean_quahog
+    period: Year-round
+  - species: soft_shell_clam
+    period: Year-round
+  - species: slipper_limpet
+    period: Year-round
+  - species: cherrystone
+    period: Year-round
+
+other-species-scallop:
+  - species: winter_skate
+    period: Year-round
+
+other-species-stone:
+  - species: jonah_crab
+    period: January - March
 
 recipe-cod-haddock-halibut:
   time: 20
@@ -95,7 +151,7 @@ recipe-cod-haddock-halibut:
 
     {% for option in page.seafood-options %}
     <fieldset type="text" name="cfc-species-{{ option.value }}"
-        cf-questions="If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% endcase %}"
+        cf-questions="If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% when 'ahi', 'bluefin' %}{% include other_species.html species-list=page.other-species-ahi-bluefin %}{% when 'cuttlefish', 'octopus' %}{% include other_species.html species-list=page.other-species-cuttlefish-octopus %}{% when 'lobster' %}{% include other_species.html species-list=page.other-species-lobster %}{% when 'iham', 'striped' %}{% include other_species.html species-list=page.other-species-mahi-striped %}{% when 'clam' %}{% include other_species.html species-list=page.other-species-clam %}{% when 'scallop' %}{% include other_species.html species-list=page.other-species-scallop %}{% when 'stone' %}{% include other_species.html species-list=page.other-species-stone %}{% endcase %}"
         cf-input-placeholder="Type anything to select another seafood"
         >
             <input type="radio"
