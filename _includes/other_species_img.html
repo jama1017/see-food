@@ -1,0 +1,5 @@
+<span class='d-inline-block text-center' style='margin: 0 30px;'>
+    <img src={{ 'assets/img/' | append: include.species | append: '.png' }} width='200px' /><br /><br />
+    <span style='text-transform:capitalize'>{{ include.species | split: '_' | join: ' '}}</span><br />
+    <span>{{ include.period }}</span>
+</span>

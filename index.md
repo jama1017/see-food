@@ -3,44 +3,57 @@ title: See-food
 layout: page
 
 seafood-options:
-  - value: ahi
+  - value: ahi_tuna
     label: Ahi Tuna
+    period: Year-round
     taste-img: assets/img/flavor_ahi_bluefin.png
-  - value: bluefin
+  - value: bluefin_tuna
     label: Bluefin Tuna
+    period: Year-round
     taste-img: assets/img/flavor_ahi_bluefin.png
   - value: cod
     label: Cod
+    period: Year-round
     taste-img: assets/img/flavor_cod_haddock_halibut.png
   - value: clam
     label: Clam
+    period: Year-round
     taste-img: assets/img/flavor_clam.png
   - value: cuttlefish
     label: Cuttlefish
+    period: Year-round
     taste-img: assets/img/flavor_cuttlefish_octopus.png
   - value: haddock
     label: Haddock
+    period: Year-round
     taste-img: assets/img/flavor_cod_haddock_halibut.png
   - value: halibut
     label: Halibut
+    period: Year-round
     taste-img: assets/img/flavor_cod_haddock_halibut.png
   - value: lobster
     label: Lobster
+    period: Year-round
     taste-img: assets/img/flavor_lobster.png
-  - value: iham
+  - value: mahi_mahi
     label: Mahi-mahi
+    period: Year-round
     taste-img: assets/img/flavor_mahi_striped.png
   - value: octopus
     label: Octopus
+    period: Year-round
     taste-img: assets/img/flavor_cuttlefish_octopus.png
   - value: scallop
     label: Scallop
+    period: Year-round
     taste-img: assets/img/flavor_scallop.png
-  - value: striped
+  - value: striped_bass
     label: Striped Bass
+    period: Year-round
     taste-img: assets/img/flavor_mahi_striped.png
-  - value: stone
+  - value: stone_crab
     label: Stone Crab
+    period: Year-round
     taste-img: assets/img/flavor_stone.png
 
 other-species-cod-haddock-halibut:
@@ -151,7 +164,7 @@ recipe-cod-haddock-halibut:
 
     {% for option in page.seafood-options %}
     <fieldset type="text" name="cfc-species-{{ option.value }}"
-        cf-questions="If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% when 'ahi', 'bluefin' %}{% include other_species.html species-list=page.other-species-ahi-bluefin %}{% when 'cuttlefish', 'octopus' %}{% include other_species.html species-list=page.other-species-cuttlefish-octopus %}{% when 'lobster' %}{% include other_species.html species-list=page.other-species-lobster %}{% when 'iham', 'striped' %}{% include other_species.html species-list=page.other-species-mahi-striped %}{% when 'clam' %}{% include other_species.html species-list=page.other-species-clam %}{% when 'scallop' %}{% include other_species.html species-list=page.other-species-scallop %}{% when 'stone' %}{% include other_species.html species-list=page.other-species-stone %}{% endcase %}"
+        cf-questions="{% include species_img.html species=option.value period=option.period %}&&If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% when 'ahi_tuna', 'bluefin_tuna' %}{% include other_species.html species-list=page.other-species-ahi-bluefin %}{% when 'cuttlefish', 'octopus' %}{% include other_species.html species-list=page.other-species-cuttlefish-octopus %}{% when 'lobster' %}{% include other_species.html species-list=page.other-species-lobster %}{% when 'mahi_mahi', 'striped_bass' %}{% include other_species.html species-list=page.other-species-mahi-striped %}{% when 'clam' %}{% include other_species.html species-list=page.other-species-clam %}{% when 'scallop' %}{% include other_species.html species-list=page.other-species-scallop %}{% when 'stone_crab' %}{% include other_species.html species-list=page.other-species-stone %}{% endcase %}"
         cf-input-placeholder="Type anything to select another seafood"
         >
             <input type="radio"

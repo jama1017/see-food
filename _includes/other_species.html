@@ -1,11 +1,12 @@
 <span onclick='handleScrollButtonClickLeft()' class='left-button'> </span>
 <span class='horizontal-scroll'>
   {% for species in include.species-list%}
-  <span class='d-inline-block text-center' style='margin-right: 40px;'>
+  <!-- <span class='d-inline-block text-center' style='margin-right: 40px;'>
     <img src={{ 'assets/img/' | append: species.species | append: '.png' }} width='200px' /><br /><br />
     <span style='text-transform:capitalize'>{{ species.species | split: '_' | join: ' '}}</span><br />
     <span>{{ species.period }}</span>
-  </span>
+  </span> -->
+  {% include other_species_img.html species=species.species period=species.period %}
   {% endfor %}
 </span>
 <span onclick='handleScrollButtonClickRight()' class='right-button'> </span>
