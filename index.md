@@ -126,7 +126,8 @@ other-species-stone:
 
 recipe-cod-haddock-halibut:
   time: 20
-  ingredients: ["Any mild, flakey fish fillet", Butter, Lemon, Garlic, "Salt & Pepper"]
+  ingredients:
+    ["Any mild, flakey fish fillet", Butter, Lemon, Garlic, "Salt & Pepper"]
   steps:
     - title: Pat Dry
       description: Pat dry the fillets with paper towel.
@@ -164,7 +165,7 @@ recipe-cod-haddock-halibut:
 
     {% for option in page.seafood-options %}
     <fieldset type="text" name="cfc-species-{{ option.value }}"
-        cf-questions="{% include species_img.html species=option.value period=option.period %}&&If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% when 'ahi_tuna', 'bluefin_tuna' %}{% include other_species.html species-list=page.other-species-ahi-bluefin %}{% when 'cuttlefish', 'octopus' %}{% include other_species.html species-list=page.other-species-cuttlefish-octopus %}{% when 'lobster' %}{% include other_species.html species-list=page.other-species-lobster %}{% when 'mahi_mahi', 'striped_bass' %}{% include other_species.html species-list=page.other-species-mahi-striped %}{% when 'clam' %}{% include other_species.html species-list=page.other-species-clam %}{% when 'scallop' %}{% include other_species.html species-list=page.other-species-scallop %}{% when 'stone_crab' %}{% include other_species.html species-list=page.other-species-stone %}{% endcase %}"
+        cf-questions="{% include species_img.html species=option.value period=option.period %}&&If {{ option.label }} is your jam, chances are you're into seafood with the following flavor traits...&&<img src='{{ option.taste-img }}' style='margin: 0px'>&&Ask the friendly counter folks for these lively Massachusetts arrivals you might just love.&&{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include other_species.html species-list=page.other-species-cod-haddock-halibut %}{% when 'ahi_tuna', 'bluefin_tuna' %}{% include other_species.html species-list=page.other-species-ahi-bluefin %}{% when 'cuttlefish', 'octopus' %}{% include other_species.html species-list=page.other-species-cuttlefish-octopus %}{% when 'lobster' %}{% include other_species.html species-list=page.other-species-lobster %}{% when 'mahi_mahi', 'striped_bass' %}{% include other_species.html species-list=page.other-species-mahi-striped %}{% when 'clam' %}{% include other_species.html species-list=page.other-species-clam %}{% when 'scallop' %}{% include other_species.html species-list=page.other-species-scallop %}{% when 'stone_crab' %}{% include other_species.html species-list=page.other-species-stone %}{% endcase %}&&{% include actions_table.html %}"
         cf-input-placeholder="Type anything to select another seafood"
         >
             <input type="radio"
@@ -172,32 +173,50 @@ recipe-cod-haddock-halibut:
                    name="cfc-species-{{ option.value }}"
                    id="species-{{ option.value }}-recipe"
                    value="{{ option.value }}-recipe"
-                   cf-label="<img src='assets/img/action_spoon.png' class='action-icon'/>A ridiculously easy & tasty recipe for this list"
+                   cf-label="<img src='assets/img/action_spoon.png' class='action-icon'/>How do I cook these?"
                    >
 
             <input type="radio"
                    cf-conditional-cfc-opening="{{ option.value }}"
                    name="cfc-species-{{ option.value }}"
-                   id="species-{{ option.value }}-eco"
-                   value="{{ option.value }}-eco"
-                   cf-label="<img src='assets/img/action_fish.png' class='action-icon'/>Dive deeper into <a href='https://www.eatingwiththeecosystem.org/' target='_blank'>Eating with the Ecosystem</a>"
-                   >
-
-            <input type="radio"
-                   cf-conditional-cfc-opening="{{ option.value }}"
-                   name="cfc-species-{{ option.value }}"
-                   id="species-{{ option.value }}-local"
-                   value="{{ option.value }}-local"
-                   cf-label="<img src='assets/img/action_bag.png' class='action-icon'/>Check <a href='https://www.thelocalcatch.com/' target='_blank'>the Local Catch Network</a> to locate your desired catch"
+                   id="species-{{ option.value }}-restart"
+                   value="{{ option.value }}-restart"
+                   cf-label="<img src='assets/img/action_restart.png' class='action-icon'/>Check out another seafood"
                    >
     </fieldset>
     {% endfor %}
 
+    {%- comment -%} recipes {%- endcomment -%}
+    {% for option in page.seafood-options %}
+    <fieldset
+      type="text"
+      cf-questions="{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include recipe.html recipe=page.recipe-cod-haddock-halibut%}{% else %}recipe placeholder{% endcase %}"
+      >
+      <input type="radio"
+             cf-conditional-cfc-species-{{ option.value }}="{{ option.value }}-recipe"
+             name="cfc-ending-{{ option.value }}"
+             id="ending-{{ option.value }}"
+             value="{{ option.value }}-ending"
+             cf-label="<img src='assets/img/action_restart.png' class='action-icon'/>Check out another seafood"
+             >
+    </fieldset>
+    {% endfor %}
+
+
     {% for option in page.seafood-options %}
     <input
       type="text"
-      cf-questions="{% case option.value %}{% when 'cod', 'haddock', 'halibut' %}{% include recipe.html recipe=page.recipe-cod-haddock-halibut%}{% endcase %}"
-      cf-conditional-cfc-species-{{ option.value }}="{{ option.value }}-recipe" />
+      id="{{ option.value }}-restartClicked"
+      cf-questions="Cool! Just a sec..."
+      cf-conditional-cfc-species-{{ option.value }}="{{ option.value }}-restart" 
+      />
+
+    <input
+      type="text"
+      id="ending-{{ option.value }}-restartClicked"
+      cf-questions="Awesome! Just a sec..."
+      cf-conditional-cfc-ending-{{ option.value }}="{{ option.value }}-ending" 
+      />
     {% endfor %}
 
 </form>

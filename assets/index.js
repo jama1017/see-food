@@ -1,7 +1,29 @@
+let cfInstance = null;
+let dispatcher = new cf.EventDispatcher();
+dispatcher.addEventListener(cf.FlowEvents.FLOW_UPDATE, function (event) {
+    let eventID = event.detail.tag.id
+    console.log("THISS  " + event.detail.tag.id);
+    // console.log(window.ConversationalForm.flowManager.activeConditions);
+    // console.log(event.detail)
+    if (eventID) {
+        let eventType = eventID.split("-").slice(-1)
+        if (eventType == "restartClicked") {
+            setTimeout(()=> {
+                cfInstance.remove(); 
+                initForm()
+            }, 3000)
+
+            setTimeout(() => {$("#cf-context").fadeOut(1000)}, 2000);
+        }
+    }
+}, false);
+
 window.onload = function () {
     const myForm = document.getElementById("myform");
     const cfContext = document.getElementById("cf-context");
     cfContext.style.display = "none";
+
+    myForm.addEventListener("submit", (event) => {console.log("SUBMITTED");}, true);
 
     const bodyEle = document.getElementsByTagName("body")[0];
     bodyEle.style.backgroundColor = "#0183FF";
@@ -15,15 +37,7 @@ window.onload = function () {
         console.log("Animation ended");
         bodyEle.style.backgroundColor = "#B1C8E3";
         cfContext.style.display = "block";
-        var cfInstance = cf.ConversationalForm.startTheConversation({
-            formEl: document.getElementById("myform"),
-            context: document.getElementById("cf-context"),
-            userImage: "assets/img/user_image.png",
-            robotImage: "assets/img/robot_image.png",
-            // theme: "dark",
-            // loadExternalStyleSheet: false,
-            preventAutoFocus: true,
-        });
+        initForm();
     };
 
     let currIndex = 0;
@@ -50,6 +64,20 @@ window.onload = function () {
 
     animateOpening();
 
+}
+
+const initForm = () => {
+    $("#cf-context").fadeIn();
+    cfInstance = cf.ConversationalForm.startTheConversation({
+        formEl: document.getElementById("myform"),
+        context: document.getElementById("cf-context"),
+        userImage: "assets/img/user_image.png",
+        robotImage: "assets/img/robot_image.png",
+        // theme: "dark",
+        // loadExternalStyleSheet: false,
+        preventAutoFocus: true,
+        eventDispatcher: dispatcher
+    });
 }
 
 const handleScrollButtonClickLeft = () => {
