@@ -100,7 +100,7 @@ other-species-mahi-striped:
   - species: black_sea_bass
     period: May - August
   - species: scup
-    period: May - September
+    period: Year-round
   - species: cunner
     period: Year-round
 
