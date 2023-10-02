@@ -30,8 +30,8 @@ window.onload = function () {
 
     const openingImgs = document.getElementsByClassName("opening-img");
     [...openingImgs].forEach((img) => { img.style.display = "none"; });
-    // let animationTime = 500;
-    let animationTime = 0;
+    let animationTime = 500;
+    // let animationTime = 0;
 
     const openForm = () => {
         console.log("Animation ended");
