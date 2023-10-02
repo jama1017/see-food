@@ -222,6 +222,16 @@ cf-radio-button > div:first-of-type {
 
 .table-cell {
     display:table-cell;
+    vertical-align: middle !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* cf-radio-button.cf-button.animate-in { 
+	display: block !important; 
+	max-width: 300px !important;
+} */
+
+cf-input-control-elements.two-row.animate-in cf-list:last-of-type {
+    min-height: 56px !important;
 }

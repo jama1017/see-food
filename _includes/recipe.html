@@ -1,5 +1,13 @@
-<span class='d-flex justify-content-between'>
-  <span>⏱TOTAL TIME</span>
-  <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  <span><b>{{include.recipe.time}} min</b></span>
-</span>&&🥣INGREDIENT<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br /><br />{% for ing in include.recipe.ingredients%}{{ing | append: '<br>'}}{% endfor %}&&📝 STEPS<br /><br />{% for step in include.recipe.steps %}{{forloop.index | prepend: '0'}}/{{forloop.length | prepend: '0'}} <b>{{step.title}}</b><br />{{step.description}}{% unless forloop.last %}<br /><br />{% endunless %}{% endfor %}
+<span class='span-table' style='white-space: normal !important'>
+  <span class='table-row'>
+    <span class='table-cell' style='white-space: nowrap !important'>🥡 RECIPE</span>
+    <span class='table-cell'>&nbsp;&nbsp;</span>
+    <span class='table-cell' style='text-align: right !important'><b>{{include.recipe.name}}</b></span>
+  </span>
+  <span><br></span>
+  <span class='table-row'>
+    <span class='table-cell' style='white-space: nowrap !important'>⏱ TIME</span>
+    <span class='table-cell'>&nbsp;&nbsp;</span>
+    <span class='table-cell' style='text-align: right !important'><b>{{include.recipe.time}} min</b></span>
+  </span>
+</span>&&🥣 INGREDIENT<br><br>{% for ing in include.recipe.ingredients%}{{ing | append: '<br>'}}{% endfor %}&&📝 STEPS<br><br>{% for step in include.recipe.steps %}{{forloop.index | prepend: '0'}}/{{forloop.length | prepend: '0'}} <b>{{step.title}}</b><br>{{step.description}}{% unless forloop.last %}<br><br>{% endunless %}{% endfor %}

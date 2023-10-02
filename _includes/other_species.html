@@ -1,13 +1,15 @@
 <span style='white-space: normal !important'>
 <span onclick='handleScrollButtonClickLeft()' class='left-button'> </span>
-<span class='horizontal-scroll'>
+<span class='horizontal-scroll mb-2'>
   {% for species in include.species-list%}
-  <!-- <span class='d-inline-block text-center' style='margin-right: 40px;'>
-    <img src={{ 'assets/img/' | append: species.species | append: '.png' }} width='200px' /><br /><br />
-    <span style='text-transform:capitalize'>{{ species.species | split: '_' | join: ' '}}</span><br />
-    <span>{{ species.period }}</span>
-  </span> -->
-  {% include other_species_img.html species=species.species period=species.period %}
+    {% assign margin-left = 15 %}
+    {% assign margin-right = 15 %}
+
+    {% if forloop.first == true %}
+      {% assign margin-left = 5 %}
+    {% endif %}
+
+  {% include other_species_img.html species=species.species period=species.period margin-left = margin-left margin-right=margin-right%}
   {% endfor %}
 </span>
 <span onclick='handleScrollButtonClickRight()' class='right-button'> </span>
