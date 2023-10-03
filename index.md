@@ -254,7 +254,7 @@ recipe-stone:
 
 <form id="myform" cf-form>
     <fieldset cf-label="opening" name="cfc-opening" cf-input-placeholder="Select Seafood"
-        cf-questions="Hi, Massachusetts seafoodies!<br><br>Not seeing your favorite seafood at market or on the menu? Time to try something new!&&While some seafood have unique tastes, many have alternatives with very similar flavor and texture from our local waters.<br><br>Tap any option blow to start exploration!"
+        cf-questions="Hi, Massachusetts seafoodies!<br><br>Not seeing your favorite seafood at market or on the menu? Time to try something new!&&While some seafood have unique tastes, many have alternatives with very similar flavor and texture from our local waters.<br><br>Tap any option below to start exploration!"
         />
         {% for option in page.seafood-options %}
             <input type="radio" name="cfc-opening" id="intro-{{ option.value }}" value="{{ option.value }}">
